@@ -8,13 +8,15 @@ USER root
 RUN apk add --no-cache python3 py3-pip
 
 # Copy your project files into the container
-# Adjust these if your repo structure is different
 COPY ./data /data/data
+COPY ./logs /data/logs
+COPY ./models /data/models
+COPY ./output /data/output
 COPY ./src /data/src
 COPY ./requirements.txt /data/requirements.txt
 
 # Install Python dependencies (from requirements.txt)
-RUN pip3 install -r /data/requirements.txt || true
+RUN pip3 install --no-cache-dir -r /data/requirements.txt || true
 
 # Set working directory
 WORKDIR /data
