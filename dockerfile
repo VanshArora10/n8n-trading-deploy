@@ -9,7 +9,6 @@ RUN apk add --no-cache python3 py3-pip
 
 # Copy your project files into the container
 COPY ./data /data/data
-COPY ./logs /data/logs
 COPY ./models /data/models
 COPY ./output /data/output
 COPY ./src /data/src
